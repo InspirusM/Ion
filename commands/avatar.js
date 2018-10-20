@@ -1,29 +1,17 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 
-exports.run = async (client, message, args) => {
+module.exports.run = (client, message, args) => {
 
-  var footertext = [`${client.user.username}: oof sexy`, `${client.user.username}: nice`, `${client.user.username}: 🔥`, `${client.user.username}: Someone's looking sharp today!`, `${client.user.username}: oof if i wasn't a bot...`, `${client.user.username}: looking sexier than a mug`];
-    var rand = Math.floor(Math.random() * footertext.length);
-    var randomfooter = footertext[rand];
-  let boticon = client.user.displayAvatarURL;
-  
-const member = message.mentions.members.first() || message.guild.members.get(args[1]) || message.member;
-  let avatarembed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-  .setAuthor(`${member.user.tag}'s Avatar`)
-  .setImage(member.user.displayAvatarURL)
-  .setFooter(`${randomfooter} | Request by: ${message.author.tag}`, `${boticon}`) 
-   message.channel.send(avatarembed);
-  
- }
-
+        let user = message.mentions.users.first() || message.author; // Mentioned user
+        let image = user.displayAvatarURL; // Get image URL
+        let embed = new Discord.RichEmbed()
+            .setColor("#0000000") // Set color (If you don't have ideas or preference, use RANDOM for random colors)
+            .setImage(image) // Set image in embed
+        message.channel.send(embed); // Send embed
+    }
 exports.conf = {
-   aliases: ['ava', 'pp']
+aliases: [""]
 }
-
-exports.help = {
-    name: 'avatar',
-    aliases: ['pp'],
-    description: 'Shows User Avatars',
-    usage: 'avatar'
-};
+module.exports.help = {
+ name: "avatar" 
+}

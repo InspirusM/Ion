@@ -1,28 +1,22 @@
-const Discord = require('discord.js');
+var Discord = require(`discord.js`)
 
-exports.run = async (client, message, args) => {
-  let version = require('../package.json').version
-  let postMsg = await message.channel.send('***Please Wait...***');
-  let bicon = client.user.displayAvatarURL;
-  let invembed = new Discord.RichEmbed()
-  .setColor('RANDOM') 
-  .setTitle(`Hi i'm ${client.user.username}, here is the link can be used for:`) 
-  .setThumbnail(bicon) 
-  .addField('Invite me', '[Click Here](https://discordapp.com/oauth2/authorize?client_id=474723927688609797&scope=bot&permissions=112327680)')
-  .addField('Vote me', '[Click Here](https://discordbots.org/bot/474723927688609797/vote)')
-  .setFooter(`Request by: ${message.author.tag} | v${version}`);
-  setTimeout(() => {
-postMsg.edit(invembed)
-}, 1000);
-} 
+module.exports.run = async (client, message, args) => {
 
+let inviteemb = new Discord.RichEmbed()
+.setAuthor(client.user.username)
+.setColor("#fffff")
+.setTitle("A Bot Build By R4A W RAJAT#4037")
+.setURL("https://discordapp.com/api/oauth2/authorize?client_id=479143648668155905&permissions=8&scope=bot")
+.addField("Bot Invite","A Music Bot For Your Server")
+.addField(`${client.user.username} Invite Link`," [Click Me To Invite](https://discordapp.com/api/oauth2/authorize?client_id=479143648668155905&permissions=8&scope=bot)")
+.setFooter("©R4A")
+return message.channel.send(inviteemb);
+
+}
 exports.conf = {
-   aliases: ['invitebot']
+aliases: [""]
+}
+exports.help = {
+  name: "invite"
 }
 
-exports.help = {
-  name: 'invite', 
-  category: 'Support', 
-  description: "Love sakura? why nkt you invite him to your own server!", 
-  usage: 'invite' 
-} 

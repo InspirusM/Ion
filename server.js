@@ -1,16 +1,3 @@
-const http = require('http');
-const express = require('express');
-const app = express();
-app.get("/", (request, response) => {
-  console.log(Date.now() + " Ping Received");
-  response.sendStatus(300);
-
-});
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}/`);
-}, 280000);
-
 const Discord = require('discord.js')
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
@@ -400,7 +387,7 @@ message.channel.send(support);
     
   }
 });
-client.login(process.env.BOT_TOKEN);
+client.login(process.env._TOKEN);
 
 
 //NDc5MTQzNjQ4NjY4MTU1OTA1.DqjNFw.ty9jZc578WEEdg6XrLOjuRiQoNI
